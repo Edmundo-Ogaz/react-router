@@ -8,6 +8,9 @@ import App from "./App";
 import Expenses from "./routes/expenses";
 import Invoices from "./routes/invoices";
 import Invoice from "./routes/invoice";
+import Comunas from "./comuna/comunas";
+import NewComuna from "./comuna/newComuna";
+import FiltroComuna from "./comuna/filtroComuna";
 
 const rootElement = document.getElementById("root");
 render(
@@ -25,6 +28,11 @@ render(
             }
           />
           <Route path=":invoiceId" element={<Invoice />} />
+        </Route>
+        <Route path="comunas" element={<Comunas />}>
+          <Route index element={<FiltroComuna />} />
+          <Route path="filtro" element={<FiltroComuna />} />
+          <Route path="newComuna" element={<NewComuna />} />
         </Route>
         <Route
           path="*"
